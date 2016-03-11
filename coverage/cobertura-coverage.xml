@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="24"  lines-covered="9"  line-rate="0.375"  branches-valid="6"  branches-covered="2"  branch-rate="0.3333"  timestamp="1457682008617" complexity="0" version="0.1">
+<sources>
+	<source>/home/thomas/Public/redis_chat</source>
+</sources>
+<packages>
+	<package name="redis_chat"  line-rate="0.375"  branch-rate="0.3333" >
+	<classes>
+		<class name="index.js"  filename="index.js"  line-rate="0.375"  branch-rate="0.3333" >
+		<methods>
+			<method name="(anonymous_1)"  hits="0"  signature="()V" >
+				<lines><line number="39"  hits="0" /></lines>
+			</method>
+		</methods>
+		<lines>
+			<line number="5"  hits="1"  branch="false" />
+			<line number="8"  hits="1"  branch="false" />
+			<line number="9"  hits="1"  branch="false" />
+			<line number="10"  hits="1"  branch="true"  condition-coverage="50% (1/2)" />
+			<line number="11"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
+			<line number="12"  hits="0"  branch="false" />
+			<line number="16"  hits="0"  branch="true"  condition-coverage="50% (1/2)" />
+			<line number="17"  hits="1"  branch="false" />
+			<line number="18"  hits="1"  branch="false" />
+			<line number="19"  hits="1"  branch="false" />
+			<line number="20"  hits="1"  branch="false" />
+			<line number="21"  hits="1"  branch="false" />
+			<line number="23"  hits="0"  branch="false" />
+			<line number="24"  hits="0"  branch="false" />
+			<line number="28"  hits="0"  branch="false" />
+			<line number="29"  hits="0"  branch="false" />
+			<line number="30"  hits="0"  branch="false" />
+			<line number="33"  hits="0"  branch="false" />
+			<line number="36"  hits="0"  branch="false" />
+			<line number="39"  hits="0"  branch="false" />
+			<line number="40"  hits="0"  branch="false" />
+			<line number="44"  hits="0"  branch="false" />
+			<line number="47"  hits="0"  branch="false" />
+			<line number="50"  hits="0"  branch="false" />
+		</lines>
+		</class>
+	</classes>
+	</package>
+</packages>
+</coverage>

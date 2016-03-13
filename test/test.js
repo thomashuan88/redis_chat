@@ -33,9 +33,29 @@ describe('server', function() {
 			request.get({ url: 'http://localhost:5000/' }, function(error, response, body) {
 				expect(body).to.include('Babblr');
 				expect(response.statusCode).to.equal(200);
-				expect(response.headers['content-type']).to.equal('text/html; charset=urf-8');
+				expect(response.headers['content-type']).to.equal('text/html; charset=utf-8');
 				done();
 			});
+		});
+	});
+
+	// Test sending a message
+	describe('Test sending a message', function() {
+		it("should return 'Message received'", function(done) {
+			// Connect to server
+			var socket = io.connect('http://localhost:5000', {
+				'reconnection delay': 0,
+				'reopen delay': 0,
+				'force new connection': true
+			});
+
+			socket.on('message', function(data) {
+				expect(data).to.include('Message received');
+				socket.disconnect();
+				done();
+			});
+
+			socket.emit('send', { message: 'Message received' });
 		});
 	});
 });

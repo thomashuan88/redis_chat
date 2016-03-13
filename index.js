@@ -7,7 +7,7 @@ var app, base_url, client, express, hbs, io, port, rtg, subscribe;
 // Define values
 express = require('express');
 app = express();
-port = process.evn.PORT || 5000;
+port = process.env.PORT || 5000;
 base_url = process.env.BASE_URL || 'http://localhost:5000';
 hbs = require('hbs');
 
@@ -46,5 +46,29 @@ app.use(express.static(__dirname + '/static'));
 // listen
 io = require('socket.io')({
 }).listen(app.listen(port));
+
+// Handle new messages
+io.sockets.on('connection', function(socket) {
+	// Subscribe to the Redis channel
+	subscribe.subscribe('ChatChannel');
+
+	//Handle incoming messages
+	socket.on('send', function(data) {
+		// Publish it
+		client.publish('ChatChannel', data.message);
+	});
+
+	var callback = function(channel, data) {
+		socket.emit('message', data);
+		console.log(data);
+	};
+	subscribe.on('message', callback);
+
+	// Handle disconnect
+	socket.on('disconnect', function() {
+		console.log('disconnect');
+		subscribe.removeListener('message', callback);
+	});
+});
 
 console.log("listen on port " + port);
